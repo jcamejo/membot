@@ -11,7 +11,8 @@ GraphNode::~GraphNode()
     //// STUDENT CODE
     ////
 
-    delete _chatBot; 
+    // This is the error, probably there's no chatbot attached
+    delete _chatBot;
 
     ////
     //// EOF STUDENT CODE
