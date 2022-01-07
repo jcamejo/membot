@@ -12,7 +12,11 @@ GraphNode::~GraphNode()
     ////
 
     // This is the error, probably there's no chatbot attached
-    delete _chatBot;
+    // Chatbot does not need to be delete here
+    if (_chatBot != nullptr)
+    {
+        // delete _chatBot;
+    }
 
     ////
     //// EOF STUDENT CODE
