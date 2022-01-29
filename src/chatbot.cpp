@@ -49,7 +49,7 @@ ChatBot::~ChatBot()
 // copy constructor
 ChatBot::ChatBot(const ChatBot &source)
 {
-    std::cout << "Copying content chatbot instance " << &source << " to this " << this << std::endl;
+    std::cout << "Copying content Chatbot instance " << &source << " to this " << this << std::endl;
     _image = source._image;
 
     _chatLogic = source._chatLogic;
@@ -60,7 +60,7 @@ ChatBot::ChatBot(const ChatBot &source)
 // copy assignment operator
 ChatBot &ChatBot::operator=(const ChatBot &source)
 {
-    std::cout << "ASSIGNING content of instance " << &source << " to instance " << this << std::endl;
+    std::cout << "ASSIGNING(Copy) content of Chatbot instance " << &source << " to instance " << this << std::endl;
 
     if (this == &source)
         return *this;
@@ -69,12 +69,14 @@ ChatBot &ChatBot::operator=(const ChatBot &source)
     _chatLogic = source._chatLogic;
     _rootNode = source._rootNode;
     _currentNode = source._currentNode;
+
+    return *this;
 }
 
 // Move constructor
-ChatBot::ChatBot(const ChatBot &&source)
+ChatBot::ChatBot(ChatBot &&source)
 {
-    std::cout << "MOVING (c`tor) instance" << &source << " to instance " << this << std::endl;
+    std::cout << "MOVING (c`tor) Chatbot instance" << &source << " to instance " << this << std::endl;
     _image = source._image;
     _chatLogic = source._chatLogic;
     _rootNode = source._rootNode;
@@ -87,9 +89,9 @@ ChatBot::ChatBot(const ChatBot &&source)
 }
 
 // Move assignment operator
-ChatBot &ChatBot::operator=(const ChatBot &&source)
+ChatBot &ChatBot::operator=(ChatBot &&source)
 {
-    std::cout << "MOVING (assign) instance " << &source << " to instance " << this << std::endl;
+    std::cout << "MOVING (assign) Chatbot instance " << &source << " to instance " << this << std::endl;
 
     if (this == &source)
         return *this;
