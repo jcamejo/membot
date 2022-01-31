@@ -50,9 +50,13 @@ ChatBot::~ChatBot()
 ChatBot::ChatBot(const ChatBot &source)
 {
     std::cout << "Copying content Chatbot instance " << &source << " to this " << this << std::endl;
-    _image = source._image;
+
+    _image = new wxBitmap();
+    *_image = *source._image;
 
     _chatLogic = source._chatLogic;
+    _chatLogic->SetChatbotHandle(this);
+
     _rootNode = source._rootNode;
     _currentNode = source._currentNode;
 }
@@ -65,8 +69,12 @@ ChatBot &ChatBot::operator=(const ChatBot &source)
     if (this == &source)
         return *this;
 
-    _image = source._image;
+    _image = new wxBitmap();
+    *_image = *source._image;
+
     _chatLogic = source._chatLogic;
+    _chatLogic->SetChatbotHandle(this);
+
     _rootNode = source._rootNode;
     _currentNode = source._currentNode;
 
