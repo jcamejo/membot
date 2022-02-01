@@ -85,7 +85,8 @@ ChatBot &ChatBot::operator=(const ChatBot &source)
 ChatBot::ChatBot(ChatBot &&source)
 {
     std::cout << "MOVING (c`tor) Chatbot instance" << &source << " to instance " << this << std::endl;
-    _image = source._image;
+    _image = new wxBitmap();
+    *_image = *source._image;
     _chatLogic = source._chatLogic;
     _rootNode = source._rootNode;
     _currentNode = source._currentNode;
