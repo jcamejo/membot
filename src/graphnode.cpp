@@ -8,13 +8,6 @@ GraphNode::GraphNode(int id)
 
 GraphNode::~GraphNode()
 {
-    //// STUDENT CODE
-    ////
-
-    // This is the error, probably there's no chatbot attached
-    // Chatbot does not need to be delete here
-    ////
-    //// EOF STUDENT CODE
 }
 
 void GraphNode::AddToken(std::string token)
@@ -42,16 +35,8 @@ void GraphNode::MoveChatbotToNewNode(GraphNode *newNode)
 {
     newNode->MoveChatbotHere(_chatBot);
 }
-////
-//// EOF STUDENT CODE
 
 GraphEdge *GraphNode::GetChildEdgeAtIndex(int index)
 {
-    //// STUDENT CODE
-    ////
-
     return _childEdges[index].get();
-
-    ////
-    //// EOF STUDENT CODE
 }
